@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create currency table
+      author: Natig Mammadov
+      changes:
+        - createTable:
+            tableName: currencies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: currency_type
+                  type: varchar(64)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: rate
+                  type: double
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_on
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_on
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+            remarks: Table to store information about currencies
